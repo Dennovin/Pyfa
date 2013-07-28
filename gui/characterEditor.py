@@ -648,5 +648,5 @@ class APIView (wx.Panel):
                 cChar = service.Character.getInstance()
                 cChar.apiFetch(self.Parent.Parent.getActiveCharacter(), charName)
                 self.stStatus.SetLabel("Successfully fetched %s\'s skills from EVE API." % charName)
-            except:
-                self.stStatus.SetLabel("Unable to retrieve %s\'s skills!" % charName)
+            except Exception as e:
+                self.stStatus.SetLabel("Unable to retrieve %s\'s skills: %s" % (charName, e, ))
